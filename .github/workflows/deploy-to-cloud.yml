@@ -185,7 +185,7 @@ jobs:
         run: kubectl create namespace "${{ inputs.namespace }}" --dry-run=client -o yaml | kubectl apply -f -
 
       - name: Deploy Online Boutique manifests
-        run: kubectl apply -n "${{ inputs.namespace }}" -k kubernetes-manifests/
+        run: kubectl apply -n "${{ inputs.namespace }}" -f release/kubernetes-manifests.yaml
 
       - name: Wait for rollout
         run: |
